@@ -1,0 +1,7 @@
+{
+  "name": "redworms-app",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
