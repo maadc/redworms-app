@@ -19,15 +19,12 @@ export class HomePage implements OnInit{
 
   ngOnInit() {
     this.postRequest().subscribe((news: any) => {
-      console.log(news);
       this.news= news.data;
     })
   }
 
-  fire(event) {
+  reload(event) {
       this.postRequest().subscribe((news: any) => {
-        console.log(news);
-        this.title = news.data[0].title;
         this.news= news.data;
         event.target.complete()
       })
