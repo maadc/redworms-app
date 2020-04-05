@@ -4,6 +4,8 @@ import { HttpHeaders } from "@angular/common/http";
 import { stringify } from "querystring";
 import { CompileTemplateMetadata } from '@angular/compiler';
 
+import { tokens } from '../../../private-tokens'
+
 @Component({
   selector: "app-home",
   templateUrl: "./home.page.html",
@@ -37,7 +39,7 @@ export class HomePage implements OnInit{
       .set("Content-Type", "application/json")
       .set(
         "APPCMS-TOKEN",
-        ""
+        tokens.APPCMSTOKEN
       );
     return this.http.post(url, {}, {headers, responseType: 'json'});
   }
