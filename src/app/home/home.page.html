@@ -1,7 +1,7 @@
 <ion-header>
   <ion-toolbar>
     <ion-buttons slot="start">
-      <ion-menu-button></ion-menu-button>
+      <ion-menu-button color="primary"></ion-menu-button>
     </ion-buttons>
     <ion-title>
       {{title}}
@@ -10,16 +10,23 @@
 </ion-header>
 
 <ion-content>
-    <ion-refresher slot="fixed" pullFactor="0.5" pullMin="100" pullMax="200" (ionRefresh)="reload($event)">
-      <ion-refresher-content></ion-refresher-content>
-    </ion-refresher>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title color="primary">Ankündigung</ion-card-title>
+      <ion-card-subtitle [innerHTML]="ankundigung">
+      </ion-card-subtitle>
+    </ion-card-header>
+  </ion-card>
+  <ion-refresher slot="fixed" pullFactor="0.5" pullMin="100" pullMax="200" (ionRefresh)="reload($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
   <ion-card *ngFor="let new of news">
     <ion-card-header>
-      <ion-card-title color="primary">{{ new.subtitle }}</ion-card-title>
-      <ion-card-subtitle>{{ new.title }}</ion-card-subtitle>
+      <ion-card-title color="primary">{{ new.title }}</ion-card-title>
+      <ion-card-subtitle>{{ new.subtitle }}</ion-card-subtitle>
     </ion-card-header>
-  
-    <ion-card-content [innerHTML] = "new.content" >
+
+    <ion-card-content [innerHTML]="new.content">
     </ion-card-content>
     <ion-chip class="category-badge">
       <ion-label color="primary">{{ new.category }}</ion-label>
